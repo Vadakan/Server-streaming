@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package Server_streaming;
+
+option go_package = "/stub/pb";
+
+message Request{
+   int32 id = 1;
+}
+
+message Response{
+   int32 result = 1;
+}
+
+service StreamService{
+   rpc FetchResponse (Request) returns (stream Response) {}
+}
